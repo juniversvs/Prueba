@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+>
+<head th:replace="~{fragments/head :: head('Login')}">
+    <meta charset="UTF-8">
+    <title>Login - Sistema de Ventas</title>
+</head>
+
+<body class="bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="#">
+        Sistema de Ventas
+    </a>
+    <button class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse"
+         id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active"
+             aria-current="page"
+             th:href="@{/register}">
+             Registrarse
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-5 offset-md-3">
+        <div th:if="${param.error}">
+            <div class="alert alert-danger">
+                Usuario no válido o clave no válida
+            </div>
+        </div>
+        <div th:if="${param.logout}">
+            <div class="alert alert-success">
+                Se ha cerrado la sesión
+            </div>
+        </div>
+      <div class="card shadow">
+        <div class="card-header bg-dark text-white">
+          <h3 class="text-center">
+              Inicio de Sesión
+          </h3>
+        </div>
+          <div class="card-body">
+            <form method="post" role="form"
+              class="form-horizontal"
+              th:action="@{/login}">
+              <div class="form-group mb-3">
+                  <label class="control-label">
+                      Usuario
+                  </label>
+                  <input type="text"
+                         id="username"
+                         name="username"
+                         class="form-control"
+                         placeholder="Ingresar Usuario" />
+              </div>
+              <div class="form-group mb-4">
+                <label class="control-label">
+                    Clave
+                </label>
+                <input type="password"
+                       id="clave"
+                       name="clave"
+                       class="form-control"
+                       placeholder="Ingresar Clave" />
+              </div>
+              <div class="d-grid mb-3">
+                  <button type="submit"
+                          class="btn btn-primary">
+                          Ingresar
+                  </button>
+              </div>
+              <div class="text-center">
+                  <span>
+                      ¿No estás registrado?
+                  </span>
+                  <a th:href="@{/register}">
+                      Regístrate aquí
+                  </a>
+              </div>
+            </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div th:replace="~{fragments/scripts :: scripts}"></div>
+</body>
+</html>

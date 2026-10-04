@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/head :: head('Nuevo Cliente')}">
+    <title>Spring Ventas - Clientes</title>
+</head>
+
+<body class="bg-light">
+
+    <!-- HEADER -->
+    <div th:replace="~{fragments/header :: header}"></div>
+
+    <!-- CONTENIDO -->
+    <div class="container mt-4">
+
+        <div class="row">
+            <div class="col-lg-6 col-md-8 col-sm-10 container justify-content-center card shadow p-3">
+                <h2 class="text-center mb-3">
+                    <i class="bi bi-person-plus-fill"></i>
+                    Crear Nuevo Cliente
+                </h2>
+                <div class="card-body">
+                    <form th:action="@{/cliente}" th:object="${cliente}" method="POST">
+                        <div class="form-group mb-3">
+                            <label>Razón Social</label>
+                            <input type="text"
+                                   name="razonSoc"
+                                   th:field="*{razonSoc}"
+                                   class="form-control"
+                                   placeholder="Ingresar Razón Social" />
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Nombre Ciudad</label>
+                            <input type="text"
+                                   name="nombreCiudad"
+                                   th:field="*{nombreCiudad}"
+                                   class="form-control"
+                                   placeholder="Ingresar Nombre Ciudad" />
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Dirección Cliente</label>
+                            <input type="text"
+                                   name="direccionClie"
+                                   th:field="*{direccionClie}"
+                                   class="form-control"
+                                   placeholder="Ingresar Dirección Cliente" />
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Teléfono</label>
+                            <input type="text"
+                                   name="telefono"
+                                   th:field="*{telefono}"
+                                   class="form-control"
+                                   placeholder="Ingresar Teléfono" />
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <a th:href="@{/cliente}" class="btn btn-secondary">
+                                <i class="bi bi-arrow-left-circle"></i> Volver
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-save"></i> Guardar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FOOTER -->
+    <div th:replace="~{fragments/footer :: footer}"></div>
+    <div th:replace="~{fragments/scripts :: scripts}"></div>
+</body>
+</html>

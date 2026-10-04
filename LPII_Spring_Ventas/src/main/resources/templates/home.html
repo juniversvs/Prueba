@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/head :: head('Login')}">
+    <meta charset="UTF-8">
+    <title>Home - Sistema de Ventas</title>
+</head>
+<body class="bg-light">
+
+<!-- HEADER -->
+<div th:replace="~{fragments/header :: header}"></div>
+
+<!-- CONTENIDO -->
+<div class="container mt-5">
+
+    <!-- BIENVENIDA CENTRADA -->
+    <div class="row mb-4 justify-content-center">
+        <div class="col-md-10">
+            <div class="p-5 bg-white rounded shadow-sm border text-center">
+                <!-- TÍTULO CON LOGO -->
+                <div class="d-flex justify-content-center align-items-center mb-3">
+                    <img th:src="@{/images/logo.jpg}"
+                         alt="Logo"
+                         style="height: 70px; width: auto;"
+                         class="me-3">
+                    <h1 class="display-5 fw-bold mb-0">
+                        Bienvenido al Sistema de Ventas
+                    </h1>
+                </div>
+                <p class="fs-5 text-muted">
+                    Sistema desarrollado con Spring Boot, JPA, Thymeleaf y MySQL.
+                </p>
+                <hr>
+                <p>
+                    Desde este panel podrás administrar usuarios, clientes,
+                    productos, ventas y reportes del sistema.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- TARJETAS -->
+    <div class="row g-4 justify-content-center">
+
+        <!-- Usuarios -->
+        <div class="col-md-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Usuarios</h5>
+                    <p class="card-text">Administrar usuarios del sistema.</p>
+                    <a th:href="@{/usuario}" class="btn btn-dark">Ir al módulo</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Clientes -->
+        <div class="col-md-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Clientes</h5>
+                    <p class="card-text">Gestión de clientes registrados.</p>
+                    <a th:href="@{/cliente}" class="btn btn-dark">Ir al módulo</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Productos -->
+        <div class="col-md-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Productos</h5>
+                    <p class="card-text">Gestión de productos y stock.</p>
+                    <a th:href="@{/producto}" class="btn btn-dark">Ir al módulo</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ventas -->
+        <div class="col-md-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Ventas</h5>
+                    <p class="card-text">Registro y control de ventas.</p>
+                    <a th:href="@{/venta}" class="btn btn-dark">Ir al módulo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FOOTER -->
+<div th:replace="~{fragments/footer :: footer}"></div>
+<div th:replace="~{fragments/scripts :: scripts}"></div>
+</body>
+</html>
